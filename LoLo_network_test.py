@@ -2,11 +2,11 @@
 import pandas as pd
 
 #inserting datasets
-data = pd.read_excel (r'C:\Users\georg\Desktop\Data.xlsx', sheet_name='nodes')
+data = pd.read_excel (r'Data.xlsx', sheet_name='nodes')
 df = pd.DataFrame (data, columns= ['node', 'demand'])
 demand = df['demand'].tolist()
 
-data1 = pd.read_excel (r'C:\Users\georg\Desktop\Data.xlsx', sheet_name='edges')
+data1 = pd.read_excel (r'Data.xlsx', sheet_name='all_pairs')
 df1 = pd.DataFrame (data1, columns= ['origin', 'destination', 'weight'])
 
 #setting edges characteristics
@@ -15,7 +15,7 @@ target = df1['destination'].tolist()
 cost = df1['weight'].tolist()
 links = []
 for i in range(len(target)):
-    links.append((source[i],target[i], cost[i]))
+    links.append((source[i], target[i], cost[i]))
 
 import networkx as nx 
 #add nodes
